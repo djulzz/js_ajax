@@ -49,36 +49,51 @@ function newsUpdate()
   if( 200 == newRequest.status ) {
     alert( "content fetched successfully");
   }
-  //alert( typeof newRequest );
-  var news = 0;
-  try {
-    news  = newRequest.responseXML;
-    alert( "The try block for getting responseXML was executed correctly");
-  } catch( requestError ) {
-    alert( requestError.description);
-  }
-  if( null == news ) {
-    alert( "your news variable is empty, everything is going fo fail from that point on");
-    return;
-  } else {
-    alert( "the news variable has content");
-  }
-  document.getElementById( "newsCell" ).innerHTML = "";
-  var newsItems = news.getElementByTagName( "item" );
-  if( newsItems.length > 0 ) {
-    for( var i = 0; i < newsItems.length; ++i ) {
-      var curHeadline = newsItems[ i ].getElementByTagName( "title" )[ 0 ].firstChild.nodeValue;
-      var curLink = newsItems[ i ].getElementByTagName( "link" )[ 0 ].firstChild.nodeValue;
-      var curPubDate = newsItems[ i ].getElementByTagName( "pubDate" )[ 0 ].firstChild.nodeValue;
-      var curDesc = newsItems[ i ].getElementByTagName( "curDesc" )[ 0 ].firstChild.nodeValue;
 
-      var curStory = "<a href='" + curLink + "'>" + curHeadline + "</a><br />";
-      curStory += "<span style='color: gray'>" + curPubDate + "/span><br />";
-      curStory += curDesc + "<br />";
-      document.getElementById( "newsCell").innerHTML += curStory;
-    }
-  } else {
-    document.getElementById( "newCell" ).innerHTML = "RSS feed does not contain any items.";
-  }
+  newRequest.onreadystatechange = fillNewsInfo;
+  clearTimeout( recentNews );
+  var recentNews = setTimeout( 'newsUpdate()', 5000 );
+  //alert( typeof newRequest );
+  // var news = 0;
+  // try {
+  //   news  = newRequest.responseXML;
+  //   alert( "The try block for getting responseXML was executed correctly");
+  // } catch( requestError ) {
+  //   alert( requestError.description);
+  // }
+  // if( null == news ) {
+  //   alert( "your news variable is empty, everything is going fo fail from that point on");
+  //   return;
+  // } else {
+  //   alert( "the news variable has content");
+  // }
 }
 
+function fillNewsInfo()
+{
+  if( newRequest.readyState == 4 && newRequest.status == 200 )
+  {
+    var news = newRequest.responseXML;
+    document.getElementById( "newsCell" ).innerHTML = "";
+    var newsItems = news.getElementByTagName( "item" );
+    if( newsItems.length > 0 )
+    {
+      for( var i = 0; i < newsItems.length; ++i )
+      {
+        var curHeadline = newsItems[ i ].getElementByTagName( "title" )[ 0 ].firstChild.nodeValue;
+        var curLink = newsItems[ i ].getElementByTagName( "link" )[ 0 ].firstChild.nodeValue;
+        var curPubDate = newsItems[ i ].getElementByTagName( "pubDate" )[ 0 ].firstChild.nodeValue;
+        var curDesc = newsItems[ i ].getElementByTagName( "curDesc" )[ 0 ].firstChild.nodeValue;
+
+        var curStory = "<a href='" + curLink + "'>" + curHeadline + "</a><br />";
+        curStory += "<span style='color: gray'>" + curPubDate + "/span><br />";
+        curStory += curDesc + "<br />";
+        document.getElementById( "newsCell").innerHTML += curStory;
+      }
+    }
+    else
+    {
+      document.getElementById( "newCell" ).innerHTML = "RSS feed does not contain any items.";
+    }
+  }
+}
