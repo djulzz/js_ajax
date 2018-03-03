@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>CVNEWSNET.COM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="text.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body onload="newsUpdate()">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="45" align="left" valign="top" style="background-image: url('images/top_bg1.gif')">
+      <table width="770" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="89"><img src="images/logo.gif" width="227" height="45" alt="Image of a company logo" /></td>
+          <td align="right" bgcolor="#FFFFFF"><img src="images/toppic.jpg" width="424" height="45" alt="Visual formatting element" /></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="22" align="left" valign="top" style="background-image: url('images/but_bg.gif')">
+      <table width="770" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td colspan="2">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-image: url('images/but_bg.gif')">
+              <tr>
+                <td align="right"><img src="images/but01.gif" width="53" height="22" alt="Visual formatting element" /><img src="images/spacer.gif" width="15" height="22" alt="Visual formatting element" /><img src="images/but02.gif" width="79" height="22" alt="Visual formatting element" /><img src="images/spacer.gif" width="15" height="22" alt="Visual formatting element" /><img src="images/but03.gif" width="79" height="22" alt="Visual formatting element" /><img src="images/spacer.gif" width="15" height="22" alt="Visual formatting element" /><img src="images/but04.gif" width="76" height="22" alt="Visual formatting element" /><img src="images/spacer.gif" width="15" height="22" alt="Visual formatting element" /><img src="images/but05.gif" width="76" height="22" alt="Visual formatting element" /><img src="images/spacer.gif" width="15" height="22" alt="Visual formatting element" /><img src="images/but06.gif" width="94" height="22" alt="Visual formatting element" /><img src="images/spacer.gif" width="50" height="22" alt="Visual formatting element" /></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" height="52" style="background-image: url('images/top_bg.gif')">
+      <table width="770" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="500"><img src="images/pic01.gif" width="500" height="52" alt="Visual formatting element" /></td>
+          <td width="270" align="right" style="background-image: url('images/top_bg.gif')">
+            <table width="200" border="0" cellspacing="0" cellpadding="2">
+              <tr>
+                <td width="60"><img src="images/search.gif" width="56" height="26" alt="Visual formatting element" /></td>
+                <td width="84">
+                  <input name="textfield" type="text" size="14" />
+                </td>
+                <td width="55"><img src="images/go.gif" width="30" height="26" alt="Visual formatting element" /></td>
+                <td width="5">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="175" valign="top" align="left"><img src="images/side_pic_1.jpg" width="175" height="461" alt="Visual formatting element" /></td>
+          <td align="left" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="984" colspan="2" height="117" align="left" valign="top">
+                  <table width="595" border="0" cellspacing="0" cellpadding="0" class="text">
+                    <tr>
+                      <td><font color="#000000"><span class="text">CVNEWSNET.COM provides you with the latest headlines from
+                      major news sources including ABC News, the BBC, CBS News, CNN, MSNBC, and Yahoo! News.</span></font></td>
+                      <td width="180" align="right"><img src="images/pic01_1.jpg" width="160" height="117" alt="Visual formatting element" /></td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr>
+                <td colspan="2" height="23" valign="top" align="left" style="background-image: url('images/b1.gif')"><img src="images/news.gif" width="594" height="23" alt="Visual formatting element" /></td>
+              </tr>
+              <tr>
+                <td colspan="2" valign="top"> <table width="595" border="0" cellpadding="10" cellspacing="0" class="text">
+                    <tr align="center">
+                      <td align="left" valign="top">
+						<!-- [Add form here] -->
+                          <h1>Top Stories</h1>
+                          <form method="get" action="TopStories.php">
+                              <table border="1" width="100%">
+                                  <tr>
+                                      <td valign="top">
+
+                                          <input type="radio" name="agency" value="http://rss.msnbc.msn.com/id/3032091/device/rss/rss/xml" onclick="newsUpdate()" />
+                                          MSNBC<br />
+                                          <input type="radio" name="agency" value="http://rss.news.yahoo.com/rss/topstories" onclick="newsUpdate()"/>
+                                          Yahoo! News
+                                      </td>
+                                      <td id="newsCell" valign="top"></td>
+<!--                                       <input type="submit" value="Get Headlines" /> -->
+                                  </tr>
+                              </table>
+                          </form>
+                      </td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="545454" valign="top">
+      <table width="770" border="0" cellspacing="0" cellpadding="8">
+        <tr>
+          <td align="center"><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif">&copy;
+            2003 The Company, Inc. All rights reserved. <u>Terms of Use and Disclaimer</u>
+            </font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+  <script type="text/javascript" src="ajax_code.js">
+    /* <![CDATA[ */
+
+    /* ]]> */
+  </script>
+</body>
+</html>
